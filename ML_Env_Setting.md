@@ -1,4 +1,4 @@
-# ML environment setting
+# ML 환경 세팅
 
 <br>
 
