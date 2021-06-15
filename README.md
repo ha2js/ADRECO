@@ -1,4 +1,4 @@
-# AD_RnP
+# ADRECO
 광고 추천 및 피드백 시스템 리팩토링  (2021.06.15 ~)
 
 <br>
@@ -9,8 +9,22 @@
 <br> 
 
 ## 기술 스택
+### Frontend
+    Vue.js
+
+#### Backend
+    Spring Boot
+
+#### Machine Learning
+    Python
+    Tensorflow
 
 <br>
 
-## 역할
- 
+## 팀 구성
+    Frontend - 1
+    Backend - 1
+    Machine Learning - 3
+    
+<br>
+
