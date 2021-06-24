@@ -100,7 +100,7 @@ ENV/
 
 /.idea/
 
-/data/
+/data/git ad
 /models/
 /checkpoints/
 /pretrained_models/
