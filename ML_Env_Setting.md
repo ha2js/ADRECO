@@ -36,7 +36,10 @@
     6. torch 설치
         - 
     
-    7. package 설치
+    7. opencv 설치
+        - sudo apt-get install libopencv-*
+    
+    8. package 설치
         - conda install numpy
         - conda install pillow
         - conda install opencv
@@ -45,6 +48,8 @@
         - pip install face_recognition
         - pip install easydict
         - pip install omegaconf
+        - pip install pymysql
+        - conda install -c menpo opencv3
 
     8. MySQL 설치
         - sudo apt-get install mysql-server
