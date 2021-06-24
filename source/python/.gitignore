@@ -101,7 +101,7 @@ ENV/
 /.idea/
 
 /data/
-
+/models/
 /checkpoints/
 /pretrained_models/
 .DS_Store
