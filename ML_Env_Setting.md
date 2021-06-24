@@ -27,7 +27,7 @@
         -
     
     4. Aanaconda
-        -
+        - 
         
     5. 가상환경 생성
         - python 설치
@@ -37,5 +37,17 @@
         - 
     
     7. package 설치
-        - numpy
-        - 
+        - conda install numpy
+        - conda install pillow
+        - conda install opencv
+        - conda install -c conda-forge dlib
+        - conda install cmake
+        - pip install face_recognition
+        - pip install easydict
+        - pip install omegaconf
+
+    8. MySQL 설치
+        - sudo apt-get install mysql-server
+        - sudo mysql_secure_installation
+        - sudo mysql -u root -p (확인)
+        - sudo apt install mysql-workbench (workbench 설치)
