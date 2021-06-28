@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project-modules id="moduleCoreId" project-version="1.5.0">
-	<wb-module deploy-name="ADRECO-API">
-		<property name="context-root" value="ADRECO-API"/>
+	<wb-module deploy-name="adreco-api">
+		<property name="context-root" value="adreco-api"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/resources"/>
 		<wb-resource deploy-path="/WEB-INF/classes" source-path="src/main/java"/>
 	</wb-module>
