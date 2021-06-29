@@ -3,7 +3,7 @@
 <br>
 
 ### OS
-    Ubuntu 18.0.4
+    Ubuntu 18.04
 
 <br>
 
