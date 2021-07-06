@@ -3,6 +3,7 @@
 <br>
 
 ### OS
+    Windows 10
     Ubuntu 18.04
 
 <br>
@@ -11,7 +12,7 @@
     Python 3.6.10
     Tensorflow 2.3.0
     CUDA 10.1
-    cuDNN 7.6
+    cuDNN 7.6.5
     torch 1.7.0
 
 <br>
@@ -19,25 +20,42 @@
 ### Setting process
     1. Ubuntu
         - 
-        
+     
+     
     2. vscode
-        -
-        
+        - https://code.visualstudio.com 설치 파일 다운 (.deb)
+        - cd ~/Downloads
+        - sudo dpkg -i code*.deb
+     
+     
     3. CUDA
-        -
+        - CUDA https://developer.nvidia.com/cuda-toolkit-archive
+        - cuDNN https://developer.nvidia.com/rdp/cudnn-archive
+        - cuDNN 압축 해제
+        - CUDA Toolkit이 설치된 경로에 삽입
+        - nvcc --version (설치 확인)
+        - nvidia-smi (설치 확인)
+    
     
     4. Aanaconda
-        - 
-        
+        - https://www.anaconda.com/products/individual
+    
+    
     5. 가상환경 생성
-        - python 설치
-        - tensorflow 설치
+        - conda create -n adreco python=3.6.10 (+ python 설치)
+        - conda info --envs (가상환경 목록 확인)
+        - conda activate adreco
+        - pip install tensorflow==2.3.0 (tensorflow 설치)
         
+     
     6. torch 설치
-        - 
+        - https://pytorch.org/get-started/previous-versions/
+        - conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch
+    
     
     7. opencv 설치
         - sudo apt-get install libopencv-*
+    
     
     8. package 설치
         - conda install numpy
@@ -51,7 +69,8 @@
         - pip install pymysql
         - conda install -c menpo opencv3
 
-    8. MySQL 설치
+
+    9. MySQL 설치
         - sudo apt-get install mysql-server
         - sudo mysql_secure_installation
         - sudo mysql -u root -p (확인)
