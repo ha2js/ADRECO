@@ -56,17 +56,26 @@ def get_optimizer(opt_name, lr):
 
 def main():
     args = get_args()
-    appa_dir = args.appa_dir
-    utk_dir = args.utk_dir
-    model_name = args.model_name
-    batch_size = args.batch_size
-    nb_epochs = args.nb_epochs
-    lr = args.lr
-    opt_name = args.opt
+    appa_dir = args.appa_dir # 데이터셋 경로 
+    utk_dir = args.utk_dir # UTK 얼굴 데이터셋 경로 
+    model_name = args.model_name # 'ResNet50' 또는 'InceptionResNetV2' 반환. default는 ResNet50 
+    batch_size = args.batch_size # default size는 32
+    nb_epochs = args.nb_epochs # default epoch는 30
+    lr = args.lr # 학습률
+    opt_name = args.opt # 최적화 default 'sgd' or 'adam'
 
+    
+    #epoch : 전체 데이터셋에 대해 한번 학습 완료시킨것
+    #메모리저하,속도저하 때문에 1에폭에 모든 데이터를 넣기 힘듬.
+    #그래서 데이터를 나눠 주게 됨. 여기서 데이터를 몇번나누는가? -> iteration
+    #각 iteration마다 주는 데이터 사이즈 -> batch size
+    # ex) 총 데이터가 100개, batch size가 10 이라면 => 1 iteration = 10개 데이터에 대해 학습
+    #     따라서 1Epoch = 100/batch size = 1-iteration
+    
+    
     if model_name == "ResNet50":
         image_size = 224
-    elif model_name == "InceptionResNetV2":
+    elif model_name == "InceptionResNetV2": #keras꺼임. 사전훈련된 컨볼루션 신경망
         image_size = 299
 
     train_gen = FaceGenerator(appa_dir, utk_dir=utk_dir, batch_size=batch_size, image_size=image_size)
