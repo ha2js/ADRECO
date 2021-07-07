@@ -45,9 +45,8 @@
         - conda create -n adreco python=3.6.10 (+ python 설치)
         - conda info --envs (가상환경 목록 확인)
         - conda activate adreco
-        - pip install tensorflow==2.3.0 (tensorflow 설치)
         
-     
+        
     6. torch 설치
         - https://pytorch.org/get-started/previous-versions/
         - conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch
@@ -58,16 +57,18 @@
     
     
     8. package 설치
+        - pip install tensorflow==2.3.0
+        - conda install jupyter notebook
         - conda install numpy
         - conda install pillow
         - conda install opencv
         - conda install -c conda-forge dlib
         - conda install cmake
+        - conda install -c menpo opencv3
         - pip install face_recognition
         - pip install easydict
         - pip install omegaconf
         - pip install pymysql
-        - conda install -c menpo opencv3
 
 
     9. MySQL 설치
