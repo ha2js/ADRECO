@@ -20,17 +20,8 @@
 </template>
 
 <script>
-    import axios from "axios"
     export default {
-        created() {
-            axios.get("/api/getProductInfo")
-            .then((res) => {
-                console.log(res);
-            })
-            .catch((error) => {
-                console.log(error);
-            })
-        }
+        
     }
 </script>
 
