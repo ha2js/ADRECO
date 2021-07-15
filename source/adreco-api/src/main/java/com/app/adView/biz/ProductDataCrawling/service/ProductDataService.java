@@ -12,6 +12,7 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.function.EntityResponse;
 
 import com.app.adView.biz.ProductDataCrawling.mapper.ProductDataMapper;
 import com.app.adView.biz.ProductDataCrawling.model.Product;
@@ -73,5 +74,9 @@ public class ProductDataService {
 			// DB 저장
 			productDataMapper.getProductData(productInfo);
 		}
+	}
+	
+	public EntityResponse<Product> getAdView() {
+		
 	}
 }
