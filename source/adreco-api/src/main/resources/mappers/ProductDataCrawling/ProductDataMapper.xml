@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.app.adView.biz.ProductDataCrawling.mapper.ProductDataMapper">
+	<delete id="initProductData">
+		DELETE
+		FROM
+			PRODUCT_INFO;		
+	</delete>
+	
+	<insert id="getProductData" parameterType="map">
+		INSERT
+		INTO
+			PRODUCT_INFO(
+				PRODUCT_NAME,
+				URL,
+				PRODUCT_PRICE,
+				PRODUCT_BRAND,
+				KEYWORD
+			)
+		VALUES
+			<foreach collection="list" item="product" separator=",">
+				(
+					#{product.productName},
+					#{product.productUrl},
+					#{product.productPrice},
+					#{product.productBrand},
+					#{product.keyword}
+				)
+			</foreach>
+	</insert>
+</mapper>
