@@ -70,7 +70,6 @@ public class ProductDataService {
 				productInfo.get(idx).setProductUrl(content.attr("src"));
 			}
 			
-			System.out.println(productInfo);
 			// DB 저장
 			productDataMapper.getProductData(productInfo);
 		}
