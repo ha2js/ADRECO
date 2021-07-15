@@ -55,12 +55,12 @@ public class ProductDataService {
 			// 컬럼별 상품정보 추출
 			for(Element content : description) {
 				
-				Product product = new Product();
-				
-				product.setKeyword(categoryName[cateIdx]);
-				product.setProductBrand(content.select(".prd-brand").text());
-				product.setProductName(content.select(".prd-name").text());
-				product.setProductPrice(content.select(".prd-price").text().split(" ")[0]);
+				Product product = Product.builder()
+									.keyword(categoryName[cateIdx])
+									.productName(content.select(".prd-name").text())
+									.productPrice(content.select(".prd-price").text().split(" ")[0])
+									.productBrand(content.select(".prd-brand").text())
+									.build();
 				
 				productInfo.add(product);
 			}

@@ -1,8 +1,10 @@
 package com.app.adView.biz.ProductDataCrawling.model;
 
+import lombok.Builder;
 import lombok.Data;
 
 @Data
+@Builder
 public class Product {
 	
 	// 제조사
