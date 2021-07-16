@@ -2,7 +2,7 @@
     <div class="box">
         <div class="middle-box">
             <h1>ADRECO</h1>
-            <a href="http://emart.ssg.com/item/itemView.ssg?itemId=1000017850945&siteNo=6001&salestrNo=2034" target="_blank">
+            <a target="_blank">
                 <img
                 class="object-fit"
                 :src="this.productUrl"
@@ -13,7 +13,7 @@
             <div class="info">
                 <h3>{{this.productBrand}}</h3>
                 <h3>{{this.productName}}</h3>
-                <h4>{{this.productPrice}}</h4>
+                <h4>{{this.productPrice}}원</h4>
             </div>
         </div>
     </div>
