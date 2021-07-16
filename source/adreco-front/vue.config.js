@@ -1,6 +1,7 @@
-const path = require("path");
+const webpack = require('webpack');
 
 module.exports = {
+    lintOnSave: false,
     devServer: {
         proxy: {
             "/api": {
@@ -12,16 +13,36 @@ module.exports = {
             }
         }
     },
-
     configureWebpack: {
+        // Set up all the aliases we use in our app.
         resolve: {
             alias: {
-                "@": path.resolve(__dirname, "src/"),
-                "@assets": path.resolve(__dirname, "src/assets"),
-                "@components": path.resolve(__dirname, "src/components"),
-                "@mixins": path.resolve(__dirname, "src/mixins"),
-                "@views": path.resolve(__dirname, "src/views"),
+                'chart.js': 'chart.js/dist/Chart.js'
             }
+        },
+        plugins: [
+            new webpack.optimize.LimitChunkCountPlugin({
+                maxChunks: 6
+            })
+        ]
+    },
+    pwa: {
+        name: 'Vue Black Dashboard',
+        themeColor: '#344675',
+        msTileColor: '#344675',
+        appleMobileWebAppCapable: 'yes',
+        appleMobileWebAppStatusBarStyle: '#344675'
+    },
+    pluginOptions: {
+        i18n: {
+            locale: 'en',
+            fallbackLocale: 'en',
+            localeDir: 'locales',
+            enableInSFC: false
         }
+    },
+    css: {
+        // Enable CSS source maps.
+        sourceMap: process.env.NODE_ENV !== 'production'
     }
-}
+};
