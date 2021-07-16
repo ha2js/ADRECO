@@ -11,7 +11,7 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.app.adView.biz.ProductDataCrawling.model.Product" alias="productData"/>
+		<typeAlias type="com.app.adView.biz.ProductDataCrawling.model.Product" alias="product"/>
 	</typeAliases>
 
 </configuration>
