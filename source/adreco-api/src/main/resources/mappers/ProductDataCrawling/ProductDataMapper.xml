@@ -21,7 +21,7 @@
 			<foreach collection="list" item="product" separator=",">
 				(
 					#{product.productName},
-					#{product.productUrl},
+					#{product.url},
 					#{product.productPrice},
 					#{product.productBrand},
 					#{product.keyword}
