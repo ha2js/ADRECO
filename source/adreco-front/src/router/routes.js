@@ -18,7 +18,7 @@ const Typography = () =>
 const TableList = () =>
     import ( /* webpackChunkName: "common" */ "@/pages/TableList.vue");
 const AdView = () =>
-    import ( /* webpackChunkName: "AdView" */ "@/pages/AdView.vue")
+    import ( /* webpackChunkName: "AdView" */ "@/pages/AdView.vue");
 
 const routes = [{
         path: "/",

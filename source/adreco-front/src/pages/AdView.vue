@@ -59,9 +59,7 @@ html,body {
     margin:0;
     padding:0;
 }
-.box {
-    background-color:rgb(0,0,0); 
-}
+.box { background-color:rgb(0,0,0); }
 .middle-box {
     background-color:rgb(255,255,255);
     max-width: 590px;

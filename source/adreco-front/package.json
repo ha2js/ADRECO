@@ -1,8 +1,8 @@
 {
-    "name": "adreco-api",
+    "name": "adreco-front",
     "version": "1.0.0",
     "private": true,
-    "description": "A sample admin dashboard based on black dashboard UI template",
+    "description": "It shows customized advertisements through face recognition and eye tracking and feedbacks them to advertisers.",
     "author": "cristian.jora <joracristi@gmail.com>",
     "scripts": {
         "serve": "vue-cli-service serve --open",
