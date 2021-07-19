@@ -100,8 +100,10 @@ ENV/
 
 /.idea/
 
-/data/git ad
+/data/
+/outputs/
 /models/
 /checkpoints/
+/.ipynb_checkpoints/
 /pretrained_models/
 .DS_Store
