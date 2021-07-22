@@ -18,17 +18,13 @@
 <br>
 
 ### Setting process
-    1. Ubuntu
-        - 
-     
-     
-    2. vscode
+    1. vscode
         - https://code.visualstudio.com 설치 파일 다운 (.deb)
         - cd ~/Downloads
         - sudo dpkg -i code*.deb
      
      
-    3. CUDA
+    2. CUDA
         - CUDA https://developer.nvidia.com/cuda-toolkit-archive
         - cuDNN https://developer.nvidia.com/rdp/cudnn-archive
         - cuDNN 압축 해제
@@ -37,27 +33,27 @@
         - nvidia-smi (설치 확인)
     
     
-    4. Aanaconda
+    3. Aanaconda
         - https://www.anaconda.com/products/individual
     
     
-    5. 가상환경 생성
+    4. 가상환경 생성
         - conda create -n adreco python=3.6.10 (+ python 설치)
         - conda info --envs (가상환경 목록 확인)
         - conda activate adreco
         
         
-    6. torch 설치
+    5. torch 설치
         - https://pytorch.org/get-started/previous-versions/
         - conda install pytorch==1.7.0 torchvision==0.8.0 torchaudio==0.7.0 cudatoolkit=10.1 -c pytorch
         - pip install torch==1.7.0+cu101 torchvision==0.8.1+cu101 torchaudio==0.7.0 -f https://download.pytorch.org/whl/torch_stable.html
     
     
-    7. opencv 설치
+    6. opencv 설치
         - sudo apt-get install libopencv-*
     
     
-    8. package 설치
+    7. package 설치
         - pip install tensorflow==2.3.0
         - conda install jupyter notebook
         - conda install numpy
