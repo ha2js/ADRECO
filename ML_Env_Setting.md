@@ -55,6 +55,17 @@
     
     7. package 설치
         - pip install tensorflow==2.3.0
+        - pip install face_recognition
+        - pip install easydict
+        - pip install omegaconf
+        - pip install pymysql
+        - pip install hydra-core
+        - pip install sklearn
+        - pip install hydra-core
+        - pip install albumentations
+        - pip install hydra-core
+        - pip isntall wandb
+        - pip install tqdm
         - conda install jupyter notebook
         - conda install numpy
         - conda install pillow
@@ -62,11 +73,7 @@
         - conda install -c conda-forge dlib
         - conda install cmake
         - conda install -c menpo opencv3
-        - pip install face_recognition
-        - pip install easydict
-        - pip install omegaconf
-        - pip install pymysql
-        - pip install hydra-core
+        - conda install pandas
 
 
     9. MySQL 설치
