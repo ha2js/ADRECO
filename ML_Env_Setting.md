@@ -70,6 +70,7 @@
         - pip install easydict
         - pip install omegaconf
         - pip install pymysql
+        - pip install hydra-core
 
 
     9. MySQL 설치
