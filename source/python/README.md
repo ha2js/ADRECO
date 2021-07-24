@@ -1,6 +1,4 @@
 
-Please note that the above result was achieved by finetuning the model using the training set of the APPA-REAL dataset.
-
 ## License
 This project is released under the MIT license.
 However, [the IMDB-WIKI dataset](https://data.vision.ee.ethz.ch/cvl/rrothe/imdb-wiki/) used in this project is originally provided under the following conditions.
