@@ -102,8 +102,10 @@ ENV/
 
 /data/
 /outputs/
+/appa-real/
 /models/
 /checkpoints/
+/checkpoint/
 /.ipynb_checkpoints/
 /pretrained_models/
 .DS_Store
