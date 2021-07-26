@@ -12,7 +12,7 @@
             </a>
             <div class="info">
                 <h3>{{this.productBrand}}</h3>
-                <h3>{{this.productName}}</h3>
+                <h3 class="info_proName">{{this.productName}}</h3>
                 <h4>{{this.productPrice}}원</h4>
             </div>
         </div>
@@ -63,12 +63,10 @@ html,body {
     background-color:rgb(0,0,0);
     overflow-y: hidden;
 }
-
 .middle-box h1 {
     color:rgb(0,0,0);
     font-weight: bold;
 }
-
 .middle-box {
     background-color:rgb(255,255,255);
     max-width: 590px;
@@ -79,13 +77,16 @@ html,body {
 .middle-box img {
     padding-top:20px;
     height:55vh;
-
 }
 .info {
     text-align: center;
     padding-top:50px;
 }
+.info_proName {
+    font-size:15px;
+}
 .info h3, .info h4 {
     color:rgb(0,0,0);
 }
+
 </style>
