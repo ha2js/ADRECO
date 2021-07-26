@@ -59,16 +59,33 @@ html,body {
     margin:0;
     padding:0;
 }
-.box { background-color:rgb(0,0,0); }
+.box { 
+    background-color:rgb(0,0,0);
+    overflow-y: hidden;
+}
+
+.middle-box h1 {
+    color:rgb(0,0,0);
+    font-weight: bold;
+}
+
 .middle-box {
     background-color:rgb(255,255,255);
     max-width: 590px;
     margin: 0 auto;
     padding:50px 40px 40px 40px;
-    min-height:89vh;
+    min-height:100vh;
+}
+.middle-box img {
+    padding-top:20px;
+    height:55vh;
+
 }
 .info {
     text-align: center;
-    
+    padding-top:50px;
+}
+.info h3, .info h4 {
+    color:rgb(0,0,0);
 }
 </style>
