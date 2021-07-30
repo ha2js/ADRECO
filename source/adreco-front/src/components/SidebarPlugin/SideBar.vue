@@ -18,7 +18,7 @@
               alt="">
           </div>
         </a>
-        <a href="http://www.creative-tim.com" class="simple-text logo-normal">
+        <a href="https://github.com/heung27/ADRECO" class="simple-text logo-normal">
           {{title}}
         </a>
       </div>
@@ -46,7 +46,7 @@
     props: {
       title: {
         type: String,
-        default: "Creative Tim"
+        default: "ADRECO"
       },
       backgroundColor: {
         type: String,
