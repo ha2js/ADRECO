@@ -1,125 +1,99 @@
 {
-  "dashboard": {
-    "completedTasks": "Completed Tasks",
-    "dailySales": "Daily Sales",
-    "performance": "Performance",
-    "simpleTable": "Simple Table",
-    "totalShipments": "Total Shipments",
-    "chartCategories": [
-      "Accounts",
-      "Purchases",
-      "Sessions"
-    ],
-    "tasks": "Tasks({count})",
-    "today": "Today",
-    "dropdown": {
-      "action": "Action",
-      "anotherAction": "Another Action",
-      "somethingElse": "Something else"
+    "dashboard": {
+        "completedTasks": "Completed Tasks",
+        "dailySales": "Daily Sales",
+
+        "monthlyTrendKor": "현재 광고상품 월별 추이",
+        "monthlyTrendEng": "Monthly trend of current advertising products",
+
+        "productTop3Kor": "현재 카테고리의 Top3 상품",
+        "productTop3Eng": "Top 3 products in the current category",
+
+        "ageGroupsViewerKor": "현재 카테고리의 연령대별 시청률",
+        "ageGroupsViewerEng": "Viewer Ratings by age group for the current category",
+        
+        "simpleTable": "Simple Table",
+        "totalShipments": "Monthly trend of current advertising products",
+        
+        "chartCategories": [
+            "평균 시청률",
+            "평균 시청시간"
+        ],
+        "tasks": "Tasks({count})",
+        "today": "Today",
+        "dropdown": {
+            "action": "Action",
+            "anotherAction": "Another Action",
+            "somethingElse": "Something else"
+        },
+        "usersTable": {
+            "title": "Simple Table",
+            "columns": [
+                "Rank",
+                "Name"
+            ],
+            "data": [{
+                    "id": 1,
+                    "rank": 1,
+                    "name": "[폴로랄프로렌] 남성 라운드반팔 스탠다드핏L (PL887BC-0MS)"
+                },
+                {
+                    "id": 2,
+                    "rank": 2,
+                    "name": "[지오지아/ZIOZIA] 헨리넥 베이직 캐쥬얼7부티셔츠 ABA2TR1132 - BK"
+                },
+                {
+                    "id": 3,
+                    "rank": 3,
+                    "name": "[라코스테] 스포츠 남성 카라반팔L (LA050AC-0MS)"
+                }
+            ]
+        },
+        "taskList": [{
+                "title": "Update the Documentation",
+                "description": "Dwuamish Head, Seattle, WA 8:47 AM",
+                "done": false
+            },
+            {
+                "title": "GDPR Compliance",
+                "description": "The GDPR is a regulation that requires businesses to protect the personal data and privacy of Europe citizens for transactions that occur within EU member states.",
+                "done": true
+            },
+            {
+                "title": "Solve the issues",
+                "description": "Fifty percent of all respondents said they would be more likely to shop at a company",
+                "done": false
+            },
+            {
+                "title": "Release v2.0.0",
+                "description": "Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM",
+                "done": false
+            },
+            {
+                "title": "Export the processed files",
+                "description": "The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs.",
+                "done": false
+            },
+            {
+                "title": "Arival at export process",
+                "description": "Capitol Hill, Seattle, WA 12:34 AM",
+                "done": false
+            }
+        ]
     },
-    "usersTable": {
-      "title": "Simple Table",
-      "columns": [
-        "Name",
-        "Country",
-        "City",
-        "Salary"
-      ],
-      "data": [
-        {
-          "id": 1,
-          "name": "Dakota Rice",
-          "salary": "$36.738",
-          "country": "Niger",
-          "city": "Oud-Turnhout"
-        },
-        {
-          "id": 2,
-          "name": "Minerva Hooper",
-          "salary": "$23,789",
-          "country": "Curaçao",
-          "city": "Sinaai-Waas"
-        },
-        {
-          "id": 3,
-          "name": "Sage Rodriguez",
-          "salary": "$56,142",
-          "country": "Netherlands",
-          "city": "Baileux"
-        },
-        {
-          "id": 4,
-          "name": "Philip Chaney",
-          "salary": "$38,735",
-          "country": "Korea, South",
-          "city": "Overland Park"
-        },
-        {
-          "id": 5,
-          "name": "Doris Greene",
-          "salary": "$63,542",
-          "country": "Malawi",
-          "city": "Feldkirchen in Kärnten"
-        },
-        {
-          "id": 6,
-          "name": "Mason Porter",
-          "salary": "$98,615",
-          "country": "Chile",
-          "city": "Gloucester"
-        },
-        {
-          "id": 7,
-          "name": "Jon Porter",
-          "salary": "$78,615",
-          "country": "Portugal",
-          "city": "Gloucester"
-        }
-      ]
-    },
-    "taskList": [
-      {
-        "title": "Update the Documentation",
-        "description": "Dwuamish Head, Seattle, WA 8:47 AM",
-        "done": false
-      },
-      {
-        "title": "GDPR Compliance",
-        "description": "The GDPR is a regulation that requires businesses to protect the personal data and privacy of Europe citizens for transactions that occur within EU member states.",
-        "done": true
-      },
-      {
-        "title": "Solve the issues",
-        "description": "Fifty percent of all respondents said they would be more likely to shop at a company",
-        "done": false
-      },
-      {
-        "title": "Release v2.0.0",
-        "description": "Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM",
-        "done": false
-      },
-      {
-        "title": "Export the processed files",
-        "description": "The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs.",
-        "done": false
-      },
-      {
-        "title": "Arival at export process",
-        "description": "Capitol Hill, Seattle, WA 12:34 AM",
-        "done": false
-      }
-    ]
-  },
-  "sidebar": {
-    "title": "Creative Tim",
-    "shortTitle": "CT",
-    "dashboard": "dashboard",
-    "icons": "Icons",
-    "maps": "Maps",
-    "notifications": "Notifications",
-    "userProfile": "User Profile",
-    "tableList": "Table List",
-    "typography": "Typography",
-    "rtlSupport": "RTL Support"
-  }
+    "sidebar": {
+        "title": "ADRECO",
+        "shortTitle": "CT",
+        "dashboard": "dashboard",
+        "feedback1": "제품 관심도",
+        "feedback2": "광고별 시청률",
+        "feedback3": "평균 시청시간",
+        "icons": "Icons",
+        "maps": "Maps",
+        "notifications": "Notifications",
+        "userProfile": "User Profile",
+        "tableList": "Table List",
+        "typography": "Typography",
+        "rtlSupport": "RTL Support"
+    }
 }
