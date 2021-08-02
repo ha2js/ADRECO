@@ -18,7 +18,9 @@ const Typography = () =>
 const TableList = () =>
     import ( /* webpackChunkName: "common" */ "@/pages/TableList.vue");
 const AdView = () =>
-    import ( /* webpackChunkName: "AdView" */ "@/pages/AdView.vue");
+    import( /* webpackChunkName: "AdView" */ "@/pages/AdView.vue");
+const Feedback2 = () =>
+    import( /* webpackChunkName: "AdView" */ "@/pages/Feedback2.vue");
 
 const routes = [{
         path: "/",
@@ -58,6 +60,11 @@ const routes = [{
                 path: "table-list",
                 name: "table-list",
                 component: TableList
+            },
+            {
+                path: "Feedback2",
+                name: "광고별 시청률",
+                component: Feedback2
             }
         ]
     },
