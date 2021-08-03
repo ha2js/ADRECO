@@ -10,11 +10,11 @@
         "productTop3Eng": "Top 3 products in the current category",
 
         "ageGroupsViewerKor": "현재 카테고리의 연령대별 시청률",
-        "ageGroupsViewerEng": "Viewer Ratings by age group for the current category",
-        
+        "ageGroupsViewerEng": "Viewer Ratings by age group of the current category",
+
         "simpleTable": "Simple Table",
         "totalShipments": "Monthly trend of current advertising products",
-        
+
         "chartCategories": [
             "평균 시청률",
             "평균 시청시간"

@@ -1,4 +1,4 @@
-package com.app.adView.sys.config;
+package com.app.sys.config;
 
 import javax.sql.DataSource;
 
@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 
 @Configuration
-@MapperScan(annotationClass = Mapper.class, sqlSessionFactoryRef = "sqlSessionFactory", basePackages = "com.app.*.biz")
+@MapperScan(annotationClass = Mapper.class, sqlSessionFactoryRef = "sqlSessionFactory", basePackages = "com.app.biz")
 public class DatasourceConfig {
 
 	@Autowired

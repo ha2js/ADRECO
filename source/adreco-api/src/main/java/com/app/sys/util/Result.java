@@ -1,57 +1,46 @@
-package com.app.adView.sys.util;
+package com.app.sys.util;
 
-import org.springframework.http.HttpStatus;
+import com.app.sys.constant.Const;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-
-import com.app.adView.sys.constant.*;
 
 @Getter
-@Setter
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
 public class Result {
-
-	HttpStatus statusCode;
+	
 	String message;
 	Object data;
 	Object error;
 	
-	public Result instance() {
-		return new Result();
-	}
-	
 	public Result successInstance() {
-		return Result.builder()
-					.statusCode(HttpStatus.OK)
-					.message(Const.SUCCESS)
-					.build();
+		Result result = new Result();
+		
+		result.message = Const.SUCCESS;
+		
+		return result;
 	}
 	
-	public Result successInstance(Object obj) {
-		return Result.builder()
-					.statusCode(HttpStatus.OK)
-					.message(Const.SUCCESS)
-					.data(obj)
-					.build();
+	public static Result successInstance(Object obj) {
+		Result result = new Result();
+		
+		result.message = Const.SUCCESS;
+		result.data = obj;
+		
+		return result;
 	}
 	
-	public Result failInstance() {
-		return Result.builder()
-					.statusCode(HttpStatus.FORBIDDEN)
-					.message(Const.FAIL)
-					.build();
+	public static Result failInstance() {
+		Result result = new Result();
+		
+		result.message = Const.FAIL;
+		
+		return result;
 	}
 	
-	public Result internalServerErrorInstance() {
-		return Result.builder()
-				.statusCode(HttpStatus.INTERNAL_SERVER_ERROR)
-				.message(Const.INTERNAL_SERVER_ERROR)
-				.build();
+	public static Result internalServerErrorInstance() {
+		Result result = new Result();
+		
+		result.message = Const.INTERNAL_SERVER_ERROR;
+		
+		return result;
 	}
 }
