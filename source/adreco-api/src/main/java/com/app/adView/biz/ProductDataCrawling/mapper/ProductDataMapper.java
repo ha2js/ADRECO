@@ -1,11 +1,10 @@
-package com.app.adView.biz.ProductDataCrawling.mapper;
+package com.app.biz.ProductDataCrawling.mapper;
 
 import java.util.List;
-import java.util.Map;
 
 import org.apache.ibatis.annotations.Mapper;
 
-import com.app.adView.biz.ProductDataCrawling.model.Product;
+import com.app.biz.ProductDataCrawling.model.Product;
 
 @Mapper
 public interface ProductDataMapper {

@@ -1,4 +1,4 @@
-package com.app.adView.biz.ProductDataCrawling.service;
+package com.app.biz.ProductDataCrawling.service;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -13,9 +13,9 @@ import org.jsoup.select.Elements;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.app.adView.biz.ProductDataCrawling.mapper.ProductDataMapper;
-import com.app.adView.biz.ProductDataCrawling.model.Product;
-import com.app.adView.sys.constant.Const;
+import com.app.biz.ProductDataCrawling.mapper.ProductDataMapper;
+import com.app.biz.ProductDataCrawling.model.Product;
+import com.app.sys.constant.Const;
 
 @Service
 public class ProductDataService {

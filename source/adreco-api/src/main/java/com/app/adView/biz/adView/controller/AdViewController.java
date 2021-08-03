@@ -1,4 +1,4 @@
-package com.app.adView.biz.adView.controller;
+package com.app.biz.adView.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -6,8 +6,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.app.adView.biz.adView.service.AdViewService;
-import com.app.adView.sys.util.Result;
+import com.app.biz.adView.service.AdViewService;
+import com.app.sys.util.Result;
 
 @RestController
 @RequestMapping("/api/adView")

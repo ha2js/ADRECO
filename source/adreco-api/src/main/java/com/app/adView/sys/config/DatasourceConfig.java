@@ -1,4 +1,4 @@
-package com.app.adView.sys.config;
+package com.app.sys.config;
 
 import javax.sql.DataSource;
 

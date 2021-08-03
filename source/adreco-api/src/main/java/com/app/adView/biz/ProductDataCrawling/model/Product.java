@@ -1,4 +1,4 @@
-package com.app.adView.biz.ProductDataCrawling.model;
+package com.app.biz.ProductDataCrawling.model;
 
 import lombok.Builder;
 import lombok.Data;
