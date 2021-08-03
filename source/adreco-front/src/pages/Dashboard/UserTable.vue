@@ -1,6 +1,6 @@
 <template>
-  <base-table :data="table.data"
-              :columns="table.columns"
+  <base-table :data="tableData"
+              :columns="this.columns"
               thead-classes="text-primary"
               >
   </base-table>
@@ -11,10 +11,24 @@
     components: {
       BaseTable
     },
+    props: {
+      tableData: {
+        type: Array
+      },
+    },
+    data() {
+      return {
+        columns : [
+          "Rank",
+          "Product-Name"
+        ]
+      }
+    },
     computed: {
       table(){
         return this.$t('dashboard.usersTable');
       }
+      
     }
   }
 </script>
