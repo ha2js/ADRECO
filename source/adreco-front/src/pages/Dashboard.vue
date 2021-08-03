@@ -7,8 +7,8 @@
           <template slot="header">
             <div class="row">
               <div class="col-sm-6" :class="isRTL ? 'text-right' : 'text-left'">
-                <h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>
-                <h2 class="card-title">{{$t('dashboard.performance')}}</h2>
+                <h5 class="card-category">{{$t('dashboard.monthlyTrendEng')}}</h5>
+                <h2 class="card-title">{{$t('dashboard.monthlyTrendKor')}}</h2>
               </div>
               <div class="col-sm-6">
                 <div class="btn-group btn-group-toggle"
@@ -43,24 +43,34 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-lg-4" :class="{'text-right': isRTL}">
-        <card type="chart">
+      <div class="col-6">
+        <card type="card">
           <template slot="header">
-            <h5 class="card-category">{{$t('dashboard.totalShipments')}}</h5>
-            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> 763,215</h3>
+            <h5 class="card-category">{{$t('dashboard.productTop3Eng')}}</h5>
+            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> {{$t('dashboard.productTop3Kor')}}</h3>
           </template>
-          <div class="chart-area">
-            <line-chart style="height: 100%"
-                        chart-id="purple-line-chart"
-                        :chart-data="purpleLineChart.chartData"
-                        :gradient-colors="purpleLineChart.gradientColors"
-                        :gradient-stops="purpleLineChart.gradientStops"
-                        :extra-options="purpleLineChart.extraOptions">
-            </line-chart>
+          <div class="table-responsive">
+            <user-table></user-table>
           </div>
         </card>
       </div>
-      <div class="col-lg-4" :class="{'text-right': isRTL}">
+      <div class="col-6">
+        <card type="chart">
+          <template slot="header">
+            <h5 class="card-category">{{$t('dashboard.ageGroupsViewerEng')}}</h5>
+            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info "></i> {{$t('dashboard.ageGroupsViewerKor')}}</h3>
+          </template>
+          <div class="chart-area">
+            <bar-chart style="height: 100%"
+                       chart-id="blue-bar-chart"
+                       :chart-data="blueBarChart.chartData"
+                       :gradient-stops="blueBarChart.gradientStops"
+                       :extra-options="blueBarChart.extraOptions">
+            </bar-chart>
+          </div>
+        </card>
+      </div>
+      <!-- <div class="col-lg-4" :class="{'text-right': isRTL}">
         <card type="chart">
           <template slot="header">
             <h5 class="card-category">{{$t('dashboard.dailySales')}}</h5>
@@ -91,9 +101,9 @@
             </line-chart>
           </div>
         </card>
-      </div>
+      </div> -->
     </div>
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-lg-6 col-md-12">
         <card type="tasks" :header-classes="{'text-right': isRTL}">
           <template slot="header">
@@ -118,12 +128,12 @@
       <div class="col-lg-6 col-md-12">
         <card class="card" :header-classes="{'text-right': isRTL}">
           <h4 slot="header" class="card-title">{{$t('dashboard.simpleTable')}}</h4>
-          <div class="table-responsive">
+          <div>
             <user-table></user-table>
           </div>
         </card>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 <script>
@@ -146,8 +156,7 @@
         bigLineChart: {
           allData: [
             [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
-            [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120],
-            [60, 80, 65, 130, 80, 105, 90, 130, 70, 115, 60, 130]
+            [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120]
           ],
           activeIndex: 0,
           chartData: {
@@ -210,9 +219,9 @@
         blueBarChart: {
           extraOptions: chartConfigs.barChartOptions,
           chartData: {
-            labels: ['USA', 'GER', 'AUS', 'UK', 'RO', 'BR'],
+            labels: ['20대 남자', '20대 여자', '30대 남자', '30대 여자', '40대 남자', '40대 여자'],
             datasets: [{
-              label: "Countries",
+              label: "시청률",
               fill: true,
               borderColor: config.colors.info,
               borderWidth: 2,

@@ -10,7 +10,7 @@ from src.factory import get_model, get_optimizer, get_scheduler
 from src.generator import ImageSequence
 
 
-@hydra.main(config_path="src/config.yaml")
+@hydra.main(config_path="src", config_name="config.yaml")
 def main(cfg):
     if cfg.wandb.project:
         import wandb
@@ -21,6 +21,7 @@ def main(cfg):
         callbacks = []
 
     csv_path = Path(to_absolute_path(__file__)).parent.joinpath("meta", f"{cfg.data.db}.csv")
+    print(csv_path)
     df = pd.read_csv(str(csv_path))
     train, val = train_test_split(df, random_state=42, test_size=0.1)
     train_gen = ImageSequence(cfg, train, "train")
@@ -50,8 +51,7 @@ def main(cfg):
                         mode="auto")
     ])
 
-    model.fit(train_gen, epochs=cfg.train.epochs, callbacks=callbacks, validation_data=val_gen,
-              workers=multiprocessing.cpu_count())
+    model.fit(train_gen, epochs=cfg.train.epochs, callbacks=callbacks, validation_data=val_gen)
 
 
 if __name__ == '__main__':

@@ -2,13 +2,22 @@
     "dashboard": {
         "completedTasks": "Completed Tasks",
         "dailySales": "Daily Sales",
-        "performance": "Performance",
+
+        "monthlyTrendKor": "현재 광고상품 월별 추이",
+        "monthlyTrendEng": "Monthly trend of current advertising products",
+
+        "productTop3Kor": "현재 카테고리의 Top3 상품",
+        "productTop3Eng": "Top 3 products in the current category",
+
+        "ageGroupsViewerKor": "현재 카테고리의 연령대별 시청률",
+        "ageGroupsViewerEng": "Viewer Ratings by age group for the current category",
+        
         "simpleTable": "Simple Table",
-        "totalShipments": "Total Shipments",
+        "totalShipments": "Monthly trend of current advertising products",
+        
         "chartCategories": [
-            "Accounts",
-            "Purchases",
-            "Sessions"
+            "평균 시청률",
+            "평균 시청시간"
         ],
         "tasks": "Tasks({count})",
         "today": "Today",
@@ -20,59 +29,23 @@
         "usersTable": {
             "title": "Simple Table",
             "columns": [
-                "Name",
-                "Country",
-                "City",
-                "Salary"
+                "Rank",
+                "Name"
             ],
             "data": [{
                     "id": 1,
-                    "name": "Dakota Rice",
-                    "salary": "$36.738",
-                    "country": "Niger",
-                    "city": "Oud-Turnhout"
+                    "rank": 1,
+                    "name": "[폴로랄프로렌] 남성 라운드반팔 스탠다드핏L (PL887BC-0MS)"
                 },
                 {
                     "id": 2,
-                    "name": "Minerva Hooper",
-                    "salary": "$23,789",
-                    "country": "Curaçao",
-                    "city": "Sinaai-Waas"
+                    "rank": 2,
+                    "name": "[지오지아/ZIOZIA] 헨리넥 베이직 캐쥬얼7부티셔츠 ABA2TR1132 - BK"
                 },
                 {
                     "id": 3,
-                    "name": "Sage Rodriguez",
-                    "salary": "$56,142",
-                    "country": "Netherlands",
-                    "city": "Baileux"
-                },
-                {
-                    "id": 4,
-                    "name": "Philip Chaney",
-                    "salary": "$38,735",
-                    "country": "Korea, South",
-                    "city": "Overland Park"
-                },
-                {
-                    "id": 5,
-                    "name": "Doris Greene",
-                    "salary": "$63,542",
-                    "country": "Malawi",
-                    "city": "Feldkirchen in Kärnten"
-                },
-                {
-                    "id": 6,
-                    "name": "Mason Porter",
-                    "salary": "$98,615",
-                    "country": "Chile",
-                    "city": "Gloucester"
-                },
-                {
-                    "id": 7,
-                    "name": "Jon Porter",
-                    "salary": "$78,615",
-                    "country": "Portugal",
-                    "city": "Gloucester"
+                    "rank": 3,
+                    "name": "[라코스테] 스포츠 남성 카라반팔L (LA050AC-0MS)"
                 }
             ]
         },

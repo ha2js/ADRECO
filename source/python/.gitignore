@@ -100,8 +100,12 @@ ENV/
 
 /.idea/
 
-/data/git ad
+/data/
+/outputs/
+/appa-real/
 /models/
 /checkpoints/
+/checkpoint/
+/.ipynb_checkpoints/
 /pretrained_models/
 .DS_Store
