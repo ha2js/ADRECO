@@ -6,11 +6,11 @@
         <card type="chart">
           <template slot="header">
             <div class="row">
-              <div class="col-sm-6" :class="isRTL ? 'text-right' : 'text-left'">
+              <div class="col-sm-9" :class="isRTL ? 'text-right' : 'text-left'">
                 <h5 class="card-category">{{$t('dashboard.monthlyTrendEng')}}</h5>
-                <h2 class="card-title">{{$t('dashboard.monthlyTrendKor')}}</h2>
+                <h4 class="card-title">{{this.currentProduct.productName}} 상품 월별 추이</h4>
               </div>
-              <div class="col-sm-6">
+              <div class="col-sm-3">
                 <div class="btn-group btn-group-toggle"
                      :class="isRTL ? 'float-left' : 'float-right'"
                      data-toggle="buttons">
@@ -47,10 +47,12 @@
         <card type="card">
           <template slot="header">
             <h5 class="card-category">{{$t('dashboard.productTop3Eng')}}</h5>
-            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> {{$t('dashboard.productTop3Kor')}}</h3>
+            <h4 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> {{this.currentProduct.keyword}} 카테고리의 Top3 상품</h4>
           </template>
           <div class="table-responsive">
-            <user-table></user-table>
+            <base-table :data="this.categoryTop3"
+                        :columns="this.columns">
+            </base-table>
           </div>
         </card>
       </div>
@@ -58,7 +60,7 @@
         <card type="chart">
           <template slot="header">
             <h5 class="card-category">{{$t('dashboard.ageGroupsViewerEng')}}</h5>
-            <h3 class="card-title"><i class="tim-icons icon-delivery-fast text-info "></i> {{$t('dashboard.ageGroupsViewerKor')}}</h3>
+            <h4 class="card-title"><i class="tim-icons icon-tv-2 text-info "></i> {{this.currentProduct.keyword}} 카테고리의 연령대별 시청률</h4>
           </template>
           <div class="chart-area">
             <bar-chart style="height: 100%"
@@ -143,16 +145,25 @@
   import TaskList from './Dashboard/TaskList';
   import UserTable from './Dashboard/UserTable';
   import config from '@/config';
+  import axios from "axios";
+  import { BaseTable } from "@/components";
 
   export default {
     components: {
       LineChart,
       BarChart,
       TaskList,
-      UserTable
+      UserTable,
+      BaseTable
     },
     data() {
       return {
+        currentProduct: "",
+        categoryTop3: [],
+        columns : [
+          "Rank",
+          "Product-Name"
+        ],
         bigLineChart: {
           allData: [
             [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
@@ -269,7 +280,31 @@
         this.$refs.bigChart.updateGradients(chartData);
         this.bigLineChart.chartData = chartData;
         this.bigLineChart.activeIndex = index;
+      },
+
+      async changeAdview() {
+        await axios.get("/api/admin/getDashBoardInfo")
+                .then((res) => {
+                  const mapData = res.data.data;
+                  this.currentProduct = mapData.currentProduct;
+                  this.categoryTop3 = [];
+
+                  mapData.categoryTop3.forEach((element,index) => {
+                    const param = {
+                      "rank": index+1,
+                      "product-name": element.productName
+                    }
+                    this.categoryTop3.push(param);
+                  });
+                })
+                .catch((error) => {
+                    console.log(error);
+                })
       }
+    },
+    created() {
+      this.changeAdview();
+      setInterval(this.changeAdview, 2000);
     },
     mounted() {
       this.i18n = this.$i18n;
