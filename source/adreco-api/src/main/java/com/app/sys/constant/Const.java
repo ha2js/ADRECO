@@ -1,4 +1,4 @@
-package com.app.adView.sys.constant;
+package com.app.sys.constant;
 
 public class Const {
 	

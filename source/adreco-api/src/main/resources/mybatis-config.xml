@@ -11,7 +11,8 @@
 	</settings>
 
 	<typeAliases>
-		<typeAlias type="com.app.adView.biz.ProductDataCrawling.model.Product" alias="product"/>
+		<typeAlias type="com.app.biz.ProductDataCrawling.model.Product" alias="product"/>
+		<typeAlias type="com.app.biz.feedback.model.CategoryTop3" alias="categoryTop3"/>
 	</typeAliases>
 
 </configuration>

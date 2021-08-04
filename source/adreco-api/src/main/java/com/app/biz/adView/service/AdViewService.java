@@ -1,4 +1,4 @@
-package com.app.adView.biz.adView.service;
+package com.app.biz.adView.service;
 
 import java.util.Random;
 
@@ -7,13 +7,12 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.app.adView.sys.util.Result;
+import com.app.biz.ProductDataCrawling.model.Product;
+import com.app.biz.adView.mapper.AdViewMapper;
+import com.app.sys.constant.Const;
+import com.app.sys.util.Result;
 
 import lombok.extern.slf4j.Slf4j;
-
-import com.app.adView.biz.ProductDataCrawling.model.Product;
-import com.app.adView.biz.adView.mapper.AdViewMapper;
-import com.app.adView.sys.constant.*;
 
 
 @Service
@@ -33,7 +32,7 @@ public class AdViewService {
 			int selectedCategory = random.nextInt(Const.categoryName.length);
 			
 			Product product = adViewMapper.getAdView(Const.categoryName[selectedCategory]);
-			Result result = new Result().successInstance(product);
+			Result result = Result.successInstance(product);
 			
 			log.info("상품정보 : {}", product);
 			
@@ -41,10 +40,10 @@ public class AdViewService {
 			
 		} catch (NullPointerException e) {
 			log.info("해당 연령대와 성별에 맞는 카테고리가 없습니다.");
-			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(new Result().failInstance());
+			return ResponseEntity.status(HttpStatus.FORBIDDEN).body(Result.failInstance());
 		} catch(Exception e) {
 			log.info("알 수 없는 오류 : {}", e.getMessage());
-			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(new Result().internalServerErrorInstance());
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Result.internalServerErrorInstance());
 		}
 		
 	}
