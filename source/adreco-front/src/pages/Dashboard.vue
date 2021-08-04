@@ -273,9 +273,9 @@
             pointHoverRadius: 4,
             pointHoverBorderWidth: 15,
             pointRadius: 4,
-            data: this.bigLineChart.allData[index]
+            data: this.bigLineChart.allData[index],
           }],
-          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
         }
         this.$refs.bigChart.updateGradients(chartData);
         this.bigLineChart.chartData = chartData;
@@ -286,7 +286,6 @@
         await axios.get("/api/admin/getDashBoardInfo")
                 .then((res) => {
                   this.mapData = res.data.data;
-                  
                 })
                 .catch((error) => {
                     console.log(error);
@@ -299,17 +298,18 @@
     },
     watch: {
       mapData: function() {
-        this.currentProduct = this.mapData.currentProduct;
-        this.categoryTop3 = [];
-        this.bigLineChart.allData = this.mapData.tableData;
+          this.currentProduct = this.mapData.currentProduct;
+          this.categoryTop3 = [];
+          this.bigLineChart.allData = this.mapData.tableData;
 
-        this.mapData.categoryTop3.forEach((element,index) => {
-          const param = {
-            "rank": index+1,
-            "product-name": element.productName
-          }
-          this.categoryTop3.push(param);
-        });
+          this.mapData.categoryTop3.forEach((element,index) => {
+            const param = {
+              "rank": index+1,
+              "product-name": element.productName
+            }
+            this.categoryTop3.push(param);
+          });
+          this.initBigChart(this.bigLineChart.activeIndex);
       }
     },
     mounted() {
@@ -326,7 +326,7 @@
         this.$rtl.disableRTL();
       }
     }
-  };
+  }
 </script>
 <style>
 </style>
