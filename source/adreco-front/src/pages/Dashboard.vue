@@ -8,11 +8,10 @@
             <div class="row">
               <div class="col-sm-9" :class="isRTL ? 'text-right' : 'text-left'">
                 <h5 class="card-category">{{$t('dashboard.monthlyTrendEng')}}</h5>
-                <h3 class="card-title">{{this.currentProduct.productName}} 상품 월별 추이</h3>
+                <h4 class="card-title">{{this.currentProduct.productName}} 상품 월별 추이</h4>
               </div>
               <div class="col-sm-3">
-                <div class="btn-group btn-group-toggle"
-                     :class="isRTL ? 'float-left' : 'float-right'"
+                <div class="btn-group btn-group-toggle float-right"
                      data-toggle="buttons">
                   <label v-for="(option, index) in bigLineChartCategories"
                          :key="option"
@@ -47,7 +46,7 @@
         <card type="card">
           <template slot="header">
             <h5 class="card-category">{{$t('dashboard.productTop3Eng')}}</h5>
-            <h3 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> {{this.currentProduct.keyword}} 카테고리의 Top3 상품</h3>
+            <h4 class="card-title"><i class="tim-icons icon-bell-55 text-primary "></i> {{this.currentProduct.keyword}} 카테고리의 Top3 상품</h4>
           </template>
           <div class="table-responsive">
             <base-table :data="this.categoryTop3"
@@ -60,7 +59,7 @@
         <card type="chart">
           <template slot="header">
             <h5 class="card-category">{{$t('dashboard.ageGroupsViewerEng')}}</h5>
-            <h3 class="card-title"><i class="tim-icons icon-tv-2 text-info "></i> {{this.currentProduct.keyword}} 카테고리의 연령대별 시청률</h3>
+            <h4 class="card-title"><i class="tim-icons icon-tv-2 text-info "></i> {{this.currentProduct.keyword}} 카테고리의 연령대별 시청률</h4>
           </template>
           <div class="chart-area">
             <bar-chart style="height: 100%"
@@ -158,6 +157,7 @@
     },
     data() {
       return {
+        mapData: {},
         currentProduct: "",
         categoryTop3: [],
         columns : [
@@ -273,9 +273,9 @@
             pointHoverRadius: 4,
             pointHoverBorderWidth: 15,
             pointRadius: 4,
-            data: this.bigLineChart.allData[index]
+            data: this.bigLineChart.allData[index],
           }],
-          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'],
+          labels: ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC']
         }
         this.$refs.bigChart.updateGradients(chartData);
         this.bigLineChart.chartData = chartData;
@@ -285,17 +285,7 @@
       async changeAdview() {
         await axios.get("/api/admin/getDashBoardInfo")
                 .then((res) => {
-                  const mapData = res.data.data;
-                  this.currentProduct = mapData.currentProduct;
-                  this.categoryTop3 = [];
-
-                  mapData.categoryTop3.forEach((element,index) => {
-                    const param = {
-                      "rank": index+1,
-                      "product-name": element.productName
-                    }
-                    this.categoryTop3.push(param);
-                  });
+                  this.mapData = res.data.data;
                 })
                 .catch((error) => {
                     console.log(error);
@@ -305,6 +295,22 @@
     created() {
       this.changeAdview();
       setInterval(this.changeAdview, 2000);
+    },
+    watch: {
+      mapData: function() {
+          this.currentProduct = this.mapData.currentProduct;
+          this.categoryTop3 = [];
+          this.bigLineChart.allData = this.mapData.tableData;
+
+          this.mapData.categoryTop3.forEach((element,index) => {
+            const param = {
+              "rank": index+1,
+              "product-name": element.productName
+            }
+            this.categoryTop3.push(param);
+          });
+          this.initBigChart(this.bigLineChart.activeIndex);
+      }
     },
     mounted() {
       this.i18n = this.$i18n;
@@ -320,7 +326,7 @@
         this.$rtl.disableRTL();
       }
     }
-  };
+  }
 </script>
 <style>
 </style>

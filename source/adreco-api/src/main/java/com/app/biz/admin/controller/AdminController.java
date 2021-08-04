@@ -3,6 +3,7 @@ package com.app.biz.admin.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -46,8 +47,11 @@ public class AdminController {
 		// 최종적으로 Map에 데이터를 담는 작업
 		Map<String, Object> result = new HashMap<>();
 		
+		int[][] tableData = adminService.getRandomData(2, 12);
+		
 		result.put("currentProduct", currentProduct);
 		result.put("categoryTop3", categoryTop3);
+		result.put("tableData", tableData);
 		
 		return ResponseEntity.ok(Result.successInstance(result));
 	}

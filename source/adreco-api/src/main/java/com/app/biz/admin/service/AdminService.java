@@ -1,6 +1,7 @@
 package com.app.biz.admin.service;
 
 import java.util.List;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,5 +20,18 @@ public class AdminService {
 		// 현재는 feedback 테이블에 데이터가 없기 때문에
 		// 임시로 product_info 테이블의 위에서 3개만 가져옴
 		return adminMapper.getCategoryTop3(category);
+	}
+	
+	public int[][] getRandomData(int row, int col) {
+		Random random = new Random();
+		
+		int[][] tableData = new int[row][col];
+		for(int i=0;i<row;i++) {
+			for(int j=0;j<col;j++) {
+				tableData[i][j] = random.nextInt(100) + 1;
+			}
+		}
+		
+		return tableData;
 	}
 }
