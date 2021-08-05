@@ -11,7 +11,7 @@ public class Result {
 	Object data;
 	Object error;
 	
-	public Result successInstance() {
+	public static Result successInstance() {
 		Result result = new Result();
 		
 		result.message = Const.SUCCESS;
