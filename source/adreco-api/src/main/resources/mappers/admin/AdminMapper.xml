@@ -14,4 +14,15 @@
 		LIMIT 3
 	</select>
 	
+	<select id="getAgeGroupOfCategory" parameterType="String" resultType="String">
+		SELECT
+			CONCAT(AGE, '대 ', GENDER)
+		FROM
+			SETTING
+		WHERE
+			KEYWORD = #{category}
+		ORDER BY
+			AGE, GENDER
+	</select>
+	
 </mapper>

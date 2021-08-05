@@ -22,6 +22,10 @@ public class AdminService {
 		return adminMapper.getCategoryTop3(category);
 	}
 	
+	public List<String> getAgeGroupOfCategory(String category) {
+		return adminMapper.getAgeGroupOfCategory(category);
+	}
+	
 	public int[][] getRandomData(int row, int col) {
 		Random random = new Random();
 		
