@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-12">
-        <card type="chart">
+        <card id="contents-size" type="chart">
           <template slot="header">
             <div class="row">
               <div class="col-sm-9" :class="isRTL ? 'text-right' : 'text-left'">
@@ -29,7 +29,7 @@
             </div>
           </template>
           <div class="chart-area">
-            <line-chart style="height: 100%"
+            <line-chart style="height: 37vh"
                         ref="bigChart"
                         chart-id="big-line-chart"
                         :chart-data="bigLineChart.chartData"
@@ -64,6 +64,7 @@
           <div class="chart-area">
             <bar-chart style="height: 100%"
                        chart-id="blue-bar-chart"
+                       ref="barChart"
                        :chart-data="blueBarChart.chartData"
                        :gradient-stops="blueBarChart.gradientStops"
                        :extra-options="blueBarChart.extraOptions">
@@ -166,8 +167,6 @@
         ],
         bigLineChart: {
           allData: [
-            [100, 70, 90, 70, 85, 60, 75, 60, 90, 80, 110, 100],
-            [80, 120, 105, 110, 95, 105, 90, 100, 80, 95, 70, 120]
           ],
           activeIndex: 0,
           chartData: {
@@ -282,6 +281,23 @@
         this.bigLineChart.activeIndex = index;
       },
 
+      initBlueBarChart() {
+        let chartData = {
+          datasets: [{
+            label: "시청률",
+              fill: true,
+              borderColor: config.colors.info,
+              borderWidth: 2,
+              borderDash: [],
+              borderDashOffset: 0.0,
+              data: this.blueBarChart.chartData.datasets.data
+          }],
+          labels: this.blueBarChart.chartData.labels
+        }
+        this.$refs.barChart.updateGradients(chartData);
+        this.blueBarChart.chartData = chartData;
+      },
+
       async changeAdview() {
         await axios.get("/api/admin/getDashBoardInfo")
                 .then((res) => {
@@ -300,7 +316,9 @@
       mapData: function() {
           this.currentProduct = this.mapData.currentProduct;
           this.categoryTop3 = [];
-          this.bigLineChart.allData = this.mapData.tableData;
+          this.bigLineChart.allData = this.mapData.bigLineChartData;
+          this.blueBarChart.chartData.datasets.data = this.mapData.blueBarChartData[0];
+          this.blueBarChart.chartData.labels = this.mapData.barChartColumns;
 
           this.mapData.categoryTop3.forEach((element,index) => {
             const param = {
@@ -310,23 +328,19 @@
             this.categoryTop3.push(param);
           });
           this.initBigChart(this.bigLineChart.activeIndex);
+          this.initBlueBarChart();
       }
     },
     mounted() {
       this.i18n = this.$i18n;
-      if (this.enableRTL) {
-        this.i18n.locale = 'ar';
-        this.$rtl.enableRTL();
-      }
-      this.initBigChart(0);
-    },
-    beforeDestroy() {
-      if (this.$rtl.isRTL) {
-        this.i18n.locale = 'en';
-        this.$rtl.disableRTL();
-      }
     }
   }
 </script>
-<style>
+<style lang="scss" scoped>
+
+  #contents-size {
+    width:100%;
+    height:50vh;
+  }
+
 </style>

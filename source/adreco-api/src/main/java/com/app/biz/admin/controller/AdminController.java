@@ -3,7 +3,6 @@ package com.app.biz.admin.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Random;
 
 import javax.servlet.http.HttpSession;
 
@@ -30,29 +29,35 @@ public class AdminController {
 	@GetMapping("/getDashBoardInfo")
 	public ResponseEntity<Result> getDashBoardInfo(HttpSession session) {
 		
-		// 현재 광고판에 나오는 상품이 없는 경우
-		if(ObjectUtils.isEmpty(session.getAttribute("currentProduct"))) {
+		try {
+			
+			// 현재 광고판 상품
+			Product currentProduct = (Product)session.getAttribute("currentProduct");
+			
+			// 현재 카테고리의 Top3 상품
+			List<CategoryTop3> categoryTop3 = adminService.getCategoryTop3(currentProduct.getKeyword());
+			
+			// 현재 카테고리의 타겟 연령대
+			List<String> ageGroup = adminService.getAgeGroupOfCategory(currentProduct.getKeyword());
+			
+			// 최종적으로 Map에 데이터를 담는 작업
+			Map<String, Object> result = new HashMap<>();
+			
+			int[][] bigLineChartData = adminService.getRandomData(2, 12);
+			int[][] blueBarChartData = adminService.getRandomData(1, ageGroup.size());
+			
+			result.put("currentProduct", currentProduct);
+			result.put("categoryTop3", categoryTop3);
+			result.put("bigLineChartData", bigLineChartData);
+			result.put("blueBarChartData", blueBarChartData);
+			result.put("barChartColumns", ageGroup);
+			
+			return ResponseEntity.ok(Result.successInstance(result));
+			
+		} catch (NullPointerException e) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Result.failInstance());
+		} catch (Exception e) {
+			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Result.failInstance());
 		}
-		
-		Product currentProduct = (Product)session.getAttribute("currentProduct");
-		
-		List<CategoryTop3> categoryTop3 = adminService.getCategoryTop3(currentProduct.getKeyword());
-		
-		// 카테고리에 해당하는 광고상품이 없는 경우
-		if(ObjectUtils.isEmpty(categoryTop3)) {
-			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Result.failInstance());
-		}
-		
-		// 최종적으로 Map에 데이터를 담는 작업
-		Map<String, Object> result = new HashMap<>();
-		
-		int[][] tableData = adminService.getRandomData(2, 12);
-		
-		result.put("currentProduct", currentProduct);
-		result.put("categoryTop3", categoryTop3);
-		result.put("tableData", tableData);
-		
-		return ResponseEntity.ok(Result.successInstance(result));
 	}
 }
