@@ -3,7 +3,7 @@
 
     <div class="row">
       <div class="col-12">
-        <card type="chart">
+        <card id="contents-size" type="chart">
           <template slot="header">
             <div class="row">
               <div class="col-sm-9" :class="isRTL ? 'text-right' : 'text-left'">
@@ -29,7 +29,7 @@
             </div>
           </template>
           <div class="chart-area">
-            <line-chart style="height: 100%"
+            <line-chart style="height: 37vh"
                         ref="bigChart"
                         chart-id="big-line-chart"
                         :chart-data="bigLineChart.chartData"
@@ -336,5 +336,11 @@
     }
   }
 </script>
-<style>
+<style lang="scss" scoped>
+
+  #contents-size {
+    width:100%;
+    height:50vh;
+  }
+
 </style>
