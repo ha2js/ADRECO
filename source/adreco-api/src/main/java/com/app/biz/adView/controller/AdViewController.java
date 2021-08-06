@@ -22,7 +22,7 @@ public class AdViewController {
 	private AdViewService adViewService;
 	
 	/**
-	 * @Desc : 광고판에서 필요한 정보 반환
+	 * @Desc : 광고판에서 필요한 정보 조회
 	 * @Author : "SangHoon Lee"
 	 * @Date : 2021. 7. 25.
 	 * @param session

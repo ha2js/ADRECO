@@ -6,6 +6,7 @@ import java.util.Random;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.app.biz.ProductDataCrawling.model.Product;
 import com.app.biz.admin.mapper.AdminMapper;
 import com.app.biz.feedback.model.CategoryTop3;
 
@@ -16,7 +17,7 @@ public class AdminService {
 	private AdminMapper adminMapper;
 	
 	/**
-	 * @Desc : 입력 받은 카테고리에 해당하는 상품들 중에서 시청률이 가장 높은 3가지 상품을 반환
+	 * @Desc : 입력 받은 카테고리에 해당하는 상품들 중에서 시청률이 가장 높은 3가지 상품 조회
 	 * @Author : "SangHoon Lee"
 	 * @Date : 2021. 8. 1.
 	 * @param category
@@ -30,7 +31,7 @@ public class AdminService {
 	}
 	
 	/**
-	 * @Desc : 입력 받은 카테고리의 타켓 연령대 시청률 정보를 반환
+	 * @Desc : 입력 받은 카테고리의 타켓 연령대 시청률 정보 조회
 	 * @Author : "SangHoon Lee"
 	 * @Date : 2021. 8. 2.
 	 * @param category
@@ -59,5 +60,15 @@ public class AdminService {
 		}
 		
 		return tableData;
+	}
+	
+	/**
+	 * @Desc : 모든 상품 조회
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 6.
+	 * @return
+	 */
+	public List<Product> getAllProductList() {
+		return adminMapper.getAllProductList();
 	}
 }

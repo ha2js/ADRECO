@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,7 +27,7 @@ public class AdminController {
 	AdminService adminService;
 	
 	/**
-	 * @Desc : DashBoard에서 필요한 정보 반환
+	 * @Desc : DashBoard에서 필요한 정보 조회
 	 * @Author : "SangHoon Lee"
 	 * @Date : 2021. 8. 1.
 	 * @param session
@@ -66,5 +67,22 @@ public class AdminController {
 		} catch (Exception e) {
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(Result.failInstance());
 		}
+	}
+
+	/**
+	 * @Desc : 피드백 페이지 로드 시 필요한 정보 조회
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 6.
+	 * @return
+	 */
+	@GetMapping("/getFeedbackData")
+	public ResponseEntity<Result> getFeedbackData() {
+		List<Product> productList = adminService.getAllProductList();
+		
+		if(ObjectUtils.isEmpty(productList)) {
+			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Result.failInstance());
+		}
+		
+		return ResponseEntity.ok(Result.successInstance(productList));
 	}
 }
