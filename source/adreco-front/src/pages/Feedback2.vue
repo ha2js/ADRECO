@@ -16,7 +16,7 @@
       <option>test3</option>
     </select>
     {{product}}
-
+  <button id="submit-btn">확인</button>
   </div>
   <div class="fb2Chart">
       <div id="chartFloat" class="col-lg-4" :class="{'text-right': isRTL}"  >
@@ -26,7 +26,7 @@
             <h3 class="card-title"><i class="tim-icons icon-single-02"></i> 남성</h3>
           </template>
           <div class="chart-area" >
-            <line-chart style="height: 100%"
+            <line-chart style="height: 35vh"
                         chart-id="blue-line-chart"
                         :chart-data="blueLineChart.chartData"
                         :gradient-stops="blueLineChart.gradientStops"
@@ -43,7 +43,7 @@
             <h3 class="card-title"><i class="tim-icons icon-single-02"></i> 여성</h3>
           </template>
           <div class="chart-area">
-            <line-chart style="height: 100%;"
+            <line-chart style="height: 35vh;"
                         chart-id="red-line-chart"
                         :chart-data="redLineChart.chartData"
                         :gradient-stops="redLineChart.gradientStops"
@@ -77,7 +77,7 @@
           chartData: {
             labels: ['10대', '20대', '30대', '40대', '50대','60대'],
             datasets: [{
-              label: "제품 관심도",
+              label: "광고별 시청률",
               fill: true,
               borderColor: config.colors.info,
               borderWidth: 2,
@@ -99,7 +99,7 @@
           chartData: {
             labels: ['10대', '20대', '30대', '40대', '50대','60대'],
             datasets: [{
-              label: "제품 관심도",
+              label: "광고별 시청률",
               fill: true,
               borderColor: config.colors.danger,
               borderWidth: 2,
@@ -125,7 +125,7 @@
 <style lang="scss" scoped>
   .fb2Select {
     text-align:center;
-    padding: 15px 0 90px 0;
+    margin-top:10vh;
   }
   #category-option, #product-option {
     background-color:rgb(39,41,61);
@@ -145,8 +145,21 @@
     position:absolute;
     width:100%;
     left:25%;
+    margin-top:10vh;
   } 
   #chartFloat {
     float:left;
+  }
+  #cardWidth {
+    height:50vh;
+  }
+  #submit-btn {
+    margin-left: 10px;
+    background-color:rgb(39,41,61);
+    color:rgb(255,255,255);
+    border: 1px solid rgb(89,91,111);
+    border-radius: 20px;
+    width:5%;
+    height:50px;
   }
 </style>
