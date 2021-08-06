@@ -1,7 +1,5 @@
 package com.app.biz.admin.controller;
 
-import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
@@ -17,13 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.biz.ProductDataCrawling.model.Product;
 import com.app.biz.admin.service.AdminService;
-import com.app.biz.feedback.model.CategoryTop3;
 import com.app.sys.util.Result;
 
-import lombok.extern.slf4j.Slf4j;
-
 @RestController
-@Slf4j
 @RequestMapping("/api/admin")
 public class AdminController {
 	
