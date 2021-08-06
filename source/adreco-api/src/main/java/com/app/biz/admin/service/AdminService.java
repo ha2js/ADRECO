@@ -20,6 +20,43 @@ public class AdminService {
 	private AdminMapper adminMapper;
 	
 	/**
+	 * @Desc : DashBoard에 필요한 정보 조회
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 6.
+	 * @return
+	 */
+	public Map<String, Object> getDashBoardInfo(Product currentProduct) {
+		
+		try {
+			// 현재 카테고리의 Top3 상품
+			List<CategoryTop3> categoryTop3 = getCategoryTop3(currentProduct.getKeyword());
+			
+			// 현재 카테고리의 타겟 연령대
+			List<String> ageGroup = getAgeGroupOfCategory(currentProduct.getKeyword());
+			
+			// DashBoard 임시 데이터 생성
+			int[][] bigLineChartData = getRandomData(2, 12);
+			int[][] blueBarChartData = getRandomData(1, ageGroup.size());
+			
+			// 최종적으로 Map에 데이터를 담는 작업
+			Map<String, Object> result = new HashMap<>();
+			
+			result.put("currentProduct", currentProduct);
+			result.put("categoryTop3", categoryTop3);
+			result.put("bigLineChartData", bigLineChartData);
+			result.put("blueBarChartData", blueBarChartData);
+			result.put("barChartColumns", ageGroup);
+			
+			return result;
+			
+		} catch(NullPointerException e) {
+			return new HashMap<>();
+		} catch(Exception e) {
+			return null;
+		}
+	}
+	
+	/**
 	 * @Desc : 입력 받은 카테고리에 해당하는 상품들 중에서 시청률이 가장 높은 3가지 상품 조회
 	 * @Author : "SangHoon Lee"
 	 * @Date : 2021. 8. 1.
