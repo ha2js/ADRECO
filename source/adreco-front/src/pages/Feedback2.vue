@@ -1,25 +1,18 @@
 <template>
 <div>
   <div class="fb2Select">
-    <select id="category-option" v-model="category">
-      <option disabled value="">선택하세요</option>
-      <option>test1</option>
-      <option>test2</option>
-      <option>test3</option>
+    <select id="category-option" @change="onSelectedCategory">
+      <option v-for="category in categoryList" :key="category" :value="category">{{category}}</option>
     </select>
-    {{category}}
 
-    <select id="product-option" v-model="product">
-      <option disabled value="">선택하세요</option>
-      <option>test1</option>
-      <option>test2</option>
-      <option>test3</option>
+    <select id="product-option" @change="onSelectedProduct">
+      <option v-for="product in productByCategory" :key="product.productName" :value="product.productName">{{product.productName}}</option>
     </select>
-    {{product}}
+
   <button id="submit-btn">확인</button>
   </div>
   <div class="fb2Chart">
-      <div id="chartFloat" class="col-lg-4" :class="{'text-right': isRTL}"  >
+      <div id="chartFloat" class="col-lg-4">
         <card id="cardWidth" type="chart">
           <template slot="header">
             <h5 class="card-category">Viewer Ratings By Advertisement</h5>
@@ -36,7 +29,7 @@
         </card>
       </div> 
 
-      <div id="chartFloat" class="col-lg-4" :class="{'text-right': isRTL}" style="margin-left:00px;">
+      <div id="chartFloat" class="col-lg-4" style="margin-left:00px;">
         <card id="cardWidth" type="chart">
           <template slot="header">
             <h5 class="card-category">Viewer Ratings By Advertisement</h5>
@@ -62,6 +55,7 @@
   import TaskList from './Dashboard/TaskList';
   import UserTable from './Dashboard/UserTable';
   import config from '@/config';
+  import axios from 'axios';
 
   export default {
     components: {
@@ -72,6 +66,10 @@
     },
     data() {
       return {
+        categoryList: [],
+        productList: [],
+        selectedCategory: "",
+        selectedProduct: "",
         blueLineChart: {
           extraOptions: chartConfigs.greenChartOptions,
           chartData: {
@@ -116,8 +114,32 @@
             }]
           }
         },
-        category: '',
-        product: '',
+      }
+    },
+    mounted() {
+      axios.get("/api/admin/getFeedbackData")
+          .then((res) => {
+            const mapData = res.data.data;
+            
+            this.categoryList = mapData.categoryList;
+            this.productList = mapData.productList;
+
+            this.selectedCategory = this.categoryList[0];
+            this.selectedProduct = this.productList[0].productName;
+          })
+    },
+    computed: {
+      productByCategory: function() {
+        return this.productList.filter(product => product.keyword == this.selectedCategory);
+      }
+    },
+    methods: {
+      onSelectedCategory(e) {
+        this.selectedCategory = e.target.value;
+        this.selectedProduct = this.productByCategory[0].productName;
+      },
+      onSelectedProduct(e) {
+        this.selectedProduct = e.target.value;
       }
     }
   };
@@ -135,6 +157,7 @@
   #category-option {
     width:15%;
     height:50px;
+    margin-right: 10px;
   }
   #product-option {
     width:50%;

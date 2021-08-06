@@ -25,4 +25,19 @@
 			AGE, GENDER
 	</select>
 	
+	<select id="getCategoryList" resultType="String">
+		SELECT
+			DISTINCT KEYWORD
+		FROM
+			PRODUCT_INFO
+	</select>
+	
+	<select id="getAllProductList" resultType="product">
+		SELECT
+			PRODUCT_NAME,
+			KEYWORD
+		FROM
+			PRODUCT_INFO
+	</select>
+	
 </mapper>
