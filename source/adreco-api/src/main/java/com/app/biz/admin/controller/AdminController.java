@@ -19,7 +19,10 @@ import com.app.biz.admin.service.AdminService;
 import com.app.biz.feedback.model.CategoryTop3;
 import com.app.sys.util.Result;
 
+import lombok.extern.slf4j.Slf4j;
+
 @RestController
+@Slf4j
 @RequestMapping("/api/admin")
 public class AdminController {
 	
@@ -77,12 +80,13 @@ public class AdminController {
 	 */
 	@GetMapping("/getFeedbackData")
 	public ResponseEntity<Result> getFeedbackData() {
-		List<Product> productList = adminService.getAllProductList();
 		
-		if(ObjectUtils.isEmpty(productList)) {
+		Map<String, Object> resultMap = adminService.getFeedbackData();
+		
+		if(resultMap.isEmpty()) {
 			return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Result.failInstance());
 		}
 		
-		return ResponseEntity.ok(Result.successInstance(productList));
+		return ResponseEntity.ok(Result.successInstance(resultMap));
 	}
 }

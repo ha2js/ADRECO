@@ -1,10 +1,13 @@
 package com.app.biz.admin.service;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.ObjectUtils;
 
 import com.app.biz.ProductDataCrawling.model.Product;
 import com.app.biz.admin.mapper.AdminMapper;
@@ -60,6 +63,42 @@ public class AdminService {
 		}
 		
 		return tableData;
+	}
+	
+	/**
+	 * @Desc : 피드백 페이지 로드 시 필요한 정보 조회
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 6.
+	 * @return
+	 */
+	public Map<String, Object> getFeedbackData() {
+		
+		// 모든 상품 카테고리 리스트
+		List<String> categoryList = getCategoryList();
+		
+		// 모든 상품 리스트
+		List<Product> productList = getAllProductList();
+		
+		if(ObjectUtils.isEmpty(categoryList) || ObjectUtils.isEmpty(productList)) {
+			return new HashMap<>();
+		}
+		
+		Map<String, Object> result = new HashMap<>();
+		
+		result.put("categoryList", getCategoryList());
+		result.put("productList", getAllProductList());
+		
+		return result;
+	}
+	
+	/**
+	 * @Desc : 모든 카테고리 조회
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 6.
+	 * @return
+	 */
+	public List<String> getCategoryList() {
+		return adminMapper.getCategoryList();
 	}
 	
 	/**
