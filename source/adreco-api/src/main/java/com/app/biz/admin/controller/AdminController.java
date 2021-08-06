@@ -9,7 +9,6 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -26,6 +25,13 @@ public class AdminController {
 	@Autowired
 	AdminService adminService;
 	
+	/**
+	 * @Desc : DashBoard에서 필요한 정보 반환
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 8. 1.
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/getDashBoardInfo")
 	public ResponseEntity<Result> getDashBoardInfo(HttpSession session) {
 		
@@ -40,11 +46,12 @@ public class AdminController {
 			// 현재 카테고리의 타겟 연령대
 			List<String> ageGroup = adminService.getAgeGroupOfCategory(currentProduct.getKeyword());
 			
-			// 최종적으로 Map에 데이터를 담는 작업
-			Map<String, Object> result = new HashMap<>();
-			
+			// DashBoard 임시 데이터 생성
 			int[][] bigLineChartData = adminService.getRandomData(2, 12);
 			int[][] blueBarChartData = adminService.getRandomData(1, ageGroup.size());
+			
+			// 최종적으로 Map에 데이터를 담는 작업
+			Map<String, Object> result = new HashMap<>();
 			
 			result.put("currentProduct", currentProduct);
 			result.put("categoryTop3", categoryTop3);

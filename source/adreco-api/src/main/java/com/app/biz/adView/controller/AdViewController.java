@@ -1,10 +1,9 @@
 package com.app.biz.adView.controller;
 
-import java.util.Random;
-
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.util.ObjectUtils;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -22,15 +21,23 @@ public class AdViewController {
 	@Autowired
 	private AdViewService adViewService;
 	
+	/**
+	 * @Desc : 광고판에서 필요한 정보 반환
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 7. 25.
+	 * @param session
+	 * @return
+	 */
 	@GetMapping("/getAdView")
 	public ResponseEntity<Result> getAdView(HttpSession session) {
+			
+		Product product = adViewService.getProduct();
 		
-		ResponseEntity<Result> result = adViewService.getAdView();
-		
-		if(!ObjectUtils.isEmpty(result.getBody().getData())) {
-			session.setAttribute("currentProduct", ((Product)(result.getBody().getData())));
+		if(!ObjectUtils.isEmpty(product)) {
+			session.setAttribute("currentProduct", product);
+			return ResponseEntity.ok().body(Result.successInstance(product));
 		}
 		
-		return result;
+		return ResponseEntity.status(HttpStatus.NOT_ACCEPTABLE).body(Result.failInstance());
 	}
 }
