@@ -23,6 +23,12 @@ public class ProductDataService {
 	@Autowired
 	private ProductDataMapper productDataMapper;
 	
+	/**
+	 * @Desc : LF Square 쇼핑몰에서 카테고리와 상품 Crawling
+	 * @Author : "SangHoon Lee"
+	 * @Date : 2021. 7. 23.
+	 * @throws IOException
+	 */
 	@PostConstruct
 	public void getProductData() throws IOException {
 		
