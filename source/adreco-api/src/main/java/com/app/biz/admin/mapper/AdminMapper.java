@@ -5,7 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Mapper;
 
 import com.app.biz.ProductDataCrawling.model.Product;
-import com.app.biz.feedback.model.CategoryTop3;
+import com.app.biz.admin.model.CategoryTop3;
 
 @Mapper
 public interface AdminMapper {

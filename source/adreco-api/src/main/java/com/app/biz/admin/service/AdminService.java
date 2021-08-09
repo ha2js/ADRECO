@@ -11,7 +11,7 @@ import org.springframework.util.ObjectUtils;
 
 import com.app.biz.ProductDataCrawling.model.Product;
 import com.app.biz.admin.mapper.AdminMapper;
-import com.app.biz.feedback.model.CategoryTop3;
+import com.app.biz.admin.model.CategoryTop3;
 
 @Service
 public class AdminService {
