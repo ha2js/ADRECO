@@ -25,75 +25,14 @@
             "action": "Action",
             "anotherAction": "Another Action",
             "somethingElse": "Something else"
-        },
-        "usersTable": {
-            "title": "Simple Table",
-            "columns": [
-                "Rank",
-                "Name"
-            ],
-            "data": [{
-                    "id": 1,
-                    "rank": 1,
-                    "name": "[폴로랄프로렌] 남성 라운드반팔 스탠다드핏L (PL887BC-0MS)"
-                },
-                {
-                    "id": 2,
-                    "rank": 2,
-                    "name": "[지오지아/ZIOZIA] 헨리넥 베이직 캐쥬얼7부티셔츠 ABA2TR1132 - BK"
-                },
-                {
-                    "id": 3,
-                    "rank": 3,
-                    "name": "[라코스테] 스포츠 남성 카라반팔L (LA050AC-0MS)"
-                }
-            ]
-        },
-        "taskList": [{
-                "title": "Update the Documentation",
-                "description": "Dwuamish Head, Seattle, WA 8:47 AM",
-                "done": false
-            },
-            {
-                "title": "GDPR Compliance",
-                "description": "The GDPR is a regulation that requires businesses to protect the personal data and privacy of Europe citizens for transactions that occur within EU member states.",
-                "done": true
-            },
-            {
-                "title": "Solve the issues",
-                "description": "Fifty percent of all respondents said they would be more likely to shop at a company",
-                "done": false
-            },
-            {
-                "title": "Release v2.0.0",
-                "description": "Ra Ave SW, Seattle, WA 98116, SUA 11:19 AM",
-                "done": false
-            },
-            {
-                "title": "Export the processed files",
-                "description": "The report also shows that consumers will not easily forgive a company once a breach exposing their personal data occurs.",
-                "done": false
-            },
-            {
-                "title": "Arival at export process",
-                "description": "Capitol Hill, Seattle, WA 12:34 AM",
-                "done": false
-            }
-        ]
+        }
     },
     "sidebar": {
         "title": "ADRECO",
-        "shortTitle": "CT",
         "dashboard": "dashboard",
         "feedback1": "제품 관심도",
         "feedback2": "광고별 시청률",
         "feedback3": "평균 시청시간",
-        "icons": "Icons",
-        "maps": "Maps",
-        "notifications": "Notifications",
-        "userProfile": "User Profile",
-        "tableList": "Table List",
-        "typography": "Typography",
-        "rtlSupport": "RTL Support"
+        "icons": "Icons"
     }
 }

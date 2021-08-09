@@ -1,4 +1,4 @@
-package com.app.biz.feedback.model;
+package com.app.biz.admin.model;
 
 import lombok.Data;
 
