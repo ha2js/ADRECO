@@ -128,7 +128,7 @@
             this.selectedProduct = this.productList[0].productName;
           })
           .catch(() => {
-            this.$router.push("/ad");
+            
           })
     },
     computed: {
