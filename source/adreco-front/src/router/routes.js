@@ -21,6 +21,8 @@ const AdView = () =>
     import( /* webpackChunkName: "AdView" */ "@/pages/AdView.vue");
 const Feedback2 = () =>
     import( /* webpackChunkName: "AdView" */ "@/pages/Feedback2.vue");
+const Feedback3 = () =>
+    import( /* webpackChunkName: "AdView" */ "@/pages/Feedback3.vue");
 
 const routes = [{
         path: "/",
@@ -65,6 +67,11 @@ const routes = [{
                 path: "Feedback2",
                 name: "광고별 시청률",
                 component: Feedback2
+            },
+            {
+                path: "Feedback3",
+                name: "평균 시청 시간",
+                component: Feedback3
             }
         ]
     },

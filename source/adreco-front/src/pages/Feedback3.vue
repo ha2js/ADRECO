@@ -15,16 +15,17 @@
       <div id="chartFloat" class="col-lg-4">
         <card id="cardWidth" type="chart">
           <template slot="header">
-            <h5 class="card-category">Viewer Ratings By Advertisement</h5>
+            <h5 class="card-category">Average Viewing Time By Advertisement</h5>
             <h3 class="card-title"><i class="tim-icons icon-single-02"></i> 남성</h3>
           </template>
           <div class="chart-area" >
-            <line-chart style="height: 35vh"
-                        chart-id="blue-line-chart"
-                        :chart-data="blueLineChart.chartData"
-                        :gradient-stops="blueLineChart.gradientStops"
-                        :extra-options="blueLineChart.extraOptions">
-            </line-chart>
+            <bar-chart style="height: 35vh"
+                chart-id="blue-bar-chart"
+                ref="barChart"
+                :chart-data="blueBarChart.chartData"
+                :gradient-stops="blueBarChart.gradientStops"
+                :extra-options="blueBarChart.extraOptions">
+            </bar-chart>
           </div>
         </card>
       </div> 
@@ -32,16 +33,17 @@
       <div id="chartFloat" class="col-lg-4" style="margin-left:00px;">
         <card id="cardWidth" type="chart">
           <template slot="header">
-            <h5 class="card-category">Viewer Ratings By Advertisement</h5>
+            <h5 class="card-category">Average Viewing Time By Advertisement</h5>
             <h3 class="card-title"><i class="tim-icons icon-single-02"></i> 여성</h3>
           </template>
           <div class="chart-area">
-            <line-chart style="height: 35vh;"
-                        chart-id="red-line-chart"
-                        :chart-data="redLineChart.chartData"
-                        :gradient-stops="redLineChart.gradientStops"
-                        :extra-options="redLineChart.extraOptions">
-            </line-chart>
+            <bar-chart style="height: 35vh"
+                chart-id="red-bar-chart"
+                ref="barChart"
+                :chart-data="redBarChart.chartData"
+                :gradient-stops="redBarChart.gradientStops"
+                :extra-options="redBarChart.extraOptions">
+            </bar-chart>
           </div>
         </card>
       </div>
@@ -70,50 +72,37 @@
         productList: [],
         selectedCategory: "",
         selectedProduct: "",
-        blueLineChart: {
-          extraOptions: chartConfigs.greenChartOptions,
+        blueBarChart: {
+          extraOptions: chartConfigs.barChartOptions,
           chartData: {
             labels: ['10대', '20대', '30대', '40대', '50대','60대'],
             datasets: [{
-              label: "시청률(%)",
+              label: "시청 시간(초)",
               fill: true,
               borderColor: config.colors.info,
               borderWidth: 2,
               borderDash: [],
               borderDashOffset: 0.0,
-              pointBackgroundColor: config.colors.info,
-              pointBorderColor: 'rgba(255,255,255,0)',
-              pointHoverBackgroundColor: config.colors.info,
-              pointBorderWidth: 20,
-              pointHoverRadius: 4,
-              pointHoverBorderWidth: 15,
-              pointRadius: 4,
-              data: [90, 50, 83, 40, 30,10],
+              data: [3, 15, 10, 13, 20, 2],
             }]
           }
         },
-        redLineChart: {
-          extraOptions: chartConfigs.greenChartOptions,
+        redBarChart: {
+          extraOptions: chartConfigs.barChartOptions,
           chartData: {
             labels: ['10대', '20대', '30대', '40대', '50대','60대'],
             datasets: [{
-              label: "시청률(%)",
+              label: "시청 시간(초)",
               fill: true,
               borderColor: config.colors.danger,
               borderWidth: 2,
               borderDash: [],
               borderDashOffset: 0.0,
-              pointBackgroundColor: config.colors.danger,
-              pointBorderColor: 'rgba(255,255,255,0)',
-              pointHoverBackgroundColor: config.colors.danger,
-              pointBorderWidth: 20,
-              pointHoverRadius: 4,
-              pointHoverBorderWidth: 15,
-              pointRadius: 4,
-              data: [80, 90, 77, 40, 10,30],
+              data: [7, 18, 24, 15, 18, 5],
             }]
           }
         },
+    
       }
     },
     mounted() {
@@ -130,20 +119,6 @@
           .catch(() => {
             
           })
-    },
-    computed: {
-      productByCategory: function() {
-        return this.productList.filter(product => product.keyword == this.selectedCategory);
-      }
-    },
-    methods: {
-      onSelectedCategory(e) {
-        this.selectedCategory = e.target.value;
-        this.selectedProduct = this.productByCategory[0].productName;
-      },
-      onSelectedProduct(e) {
-        this.selectedProduct = e.target.value;
-      }
     }
   };
 </script>
