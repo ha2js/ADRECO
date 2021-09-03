@@ -119,6 +119,20 @@
           .catch(() => {
             
           })
+    },
+    computed: {
+      productByCategory: function() {
+        return this.productList.filter(product => product.keyword == this.selectedCategory);
+      }
+    },
+    methods: {
+      onSelectedCategory(e) {
+        this.selectedCategory = e.target.value;
+        this.selectedProduct = this.productByCategory[0].productName;
+      },
+      onSelectedProduct(e) {
+        this.selectedProduct = e.target.value;
+      }
     }
   };
 </script>
