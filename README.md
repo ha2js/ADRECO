@@ -35,10 +35,10 @@
 ### Frontend
 - Vue.js
 
-#### Backend
+### Backend
 - Spring Boot
 
-#### Machine Learning
+### Machine Learning
 - Python 3.6.10
 - Tensorflow 2.3.0
 - CUDA 10.1
@@ -60,14 +60,14 @@
 ### 연령-성별 예측
     학습 모델 : EfficientNetB3
     데이터셋 : imdb
-학습 과정 : [연령-성별 예측 모델 학습](연령-성별 예측 모델 학습.md)
+학습 과정 : [연령-성별 예측 모델 학습](/연령-성별 예측 모델 학습.md)
 
 <br>
 
 ### 시선 추적
     학습 모델 : mobilenet_v2
     데이터셋 : MPIIFaceGaze_normalizad
-학습 과정 : [시선 추적 모델 학습](시선 추적 모델 학습.md)
+학습 과정 : [시선 추적 모델 학습](/시선 추적 모델 학습.md)
 
 <br>
 
