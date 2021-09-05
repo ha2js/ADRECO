@@ -31,9 +31,11 @@
 ## 개발 환경
 ### Frontend
 - Vue.js
+- 담당자 : 이상훈, 하종서
 
 ### Backend
 - Spring Boot
+- 담당자 : 이상훈, 하종서
 
 ### Machine Learning
 - Python 3.6.10
@@ -42,6 +44,7 @@
 - cuDNN 7.6.5
 - torch 1.7.0
 - opencv 3.2.0
+- 담당자 : 안진흥, 선명준, 장영인
 
 ### 협업
 - GitHub
