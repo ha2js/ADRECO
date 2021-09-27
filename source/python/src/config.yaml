@@ -12,4 +12,4 @@ train:
   batch_size: 16
 
 wandb:
-  project: null
+  project: adreco
