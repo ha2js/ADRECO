@@ -61,9 +61,7 @@
         - pip install pymysql
         - pip install hydra-core
         - pip install sklearn
-        - pip install hydra-core
         - pip install albumentations
-        - pip install hydra-core
         - pip isntall wandb
         - pip install tqdm
         - conda install jupyter notebook
